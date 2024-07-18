@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Discgolf Rating</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Discgolf Rating</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <form class="form">
+                <div class="form-group">
+                    <label for="chooseCourse">Choose course</label>
+                    <select id="chooseCourse" class="form-control">
+                        <option id="defaultCourse"></option>
+                        <option>Ekeberg</option>
+                        <option>Hvam Amateur</option>
+                        <option>Hvam Main</option>
+                        <option>Jessheim</option>
+                        <option>Krokhol Blue</option>
+                        <option>Krokhol Gold</option>
+                        <option>Myrdammen</option>
+                        <option>Nannestad 18-holes</option>
+                        <option>Nannestad 23-holes</option>
+                        <option>Rådhusparken</option>
+                        <option>Stovner</option>
+                        <option>Valstad</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="strokeCount">Number of strokes</label>
+                    <input id="strokeCount" type="number" class="form-control">
+                </div>
+            </form>
+            <button class="btn btn-primary" onclick="calculate()">Calculate Rating</button>
+        </div>
+        <div class="col-md-9">
+            <table class="table" id="allRounds">
+                <tr><th class="active">Course</th><th class="active">Strokes</th><th class="active">Rating</th></tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
