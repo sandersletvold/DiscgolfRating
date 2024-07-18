@@ -12,33 +12,22 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 @Component
-public class DiscgolfScraper {
+public class ScraperEkeberg {
 
     public static ArrayList<Integer> ekeberg;
-    public static ArrayList<Integer> hvamAmateur;
-    public static ArrayList<Integer> hvamMain;
-    public static ArrayList<Integer> jessheim;
-    public static ArrayList<Integer> krokholBlue;
-    public static ArrayList<Integer> krokholGold;
-    public static ArrayList<Integer> myrdammen;
-    public static ArrayList<Integer> nannestad18;
-    public static ArrayList<Integer> nannestad23;
-    public static ArrayList<Integer> rådhusparken;
-    public static ArrayList<Integer> stovner;
-    public static ArrayList<Integer> valstad;
 
     @PostConstruct
-    public void hvamMain() {
-        String url = "https://discgolfmetrix.com/course/33033";
-        int minIndex = 44;
-        int maxIndex = 103;
-        hvamMain = new ArrayList<>(Collections.nCopies(maxIndex - minIndex + 1, null));
+    public void ekeberg() {
+        String url = "https://discgolfmetrix.com/course/28110";
+        int minIndex = 33;
+        int maxIndex = 92;
+        ekeberg = new ArrayList<>(Collections.nCopies(maxIndex - minIndex + 1, null));
         for (int i = 0; i < minIndex - 1; i++) {
-            hvamMain.add(0);
+            ekeberg.add(0);
         }
-        hvamMain = new ArrayList<>(Collections.nCopies(maxIndex + 1, 0));
+        ekeberg = new ArrayList<>(Collections.nCopies(maxIndex + 1, 0));
         for (int i = 0; i < minIndex; i++) {
-            hvamMain.set(i, 0);
+            ekeberg.set(i, 0);
         }
         try {
             Document doc = Jsoup.connect(url).get();
@@ -55,8 +44,8 @@ public class DiscgolfScraper {
                                 String valueStr = columns.get(i + 1).text().trim();
                                 int value = Integer.parseInt(valueStr);
                                 int listIndex = index;
-                                if (listIndex >= 0 && listIndex < hvamMain.size()) {
-                                    hvamMain.set(listIndex, value);
+                                if (listIndex >= 0 && listIndex < ekeberg.size()) {
+                                    ekeberg.set(listIndex, value);
                                 } else {
                                     System.out.println("Index " + index + " is out of the expected range.");
                                 }
@@ -66,8 +55,8 @@ public class DiscgolfScraper {
                         }
                     }
                 }
-                for (int i = 0; i < hvamMain.size(); i++) {
-                    System.out.println("Index " + i + ": " + hvamMain.get(i));
+                for (int i = 0; i < ekeberg.size(); i++) {
+                    System.out.println("Index " + i + ": " + ekeberg.get(i));
                 }
             } else {
                 System.out.println("Table not found");
