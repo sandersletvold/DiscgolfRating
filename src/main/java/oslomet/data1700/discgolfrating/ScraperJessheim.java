@@ -12,22 +12,22 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 @Component
-public class ScraperEkeberg {
+public class ScraperJessheim {
 
-    public static ArrayList<Integer> ekeberg;
+    public static ArrayList<Integer> jessheim;
 
     @PostConstruct
-    public void ekeberg() {
-        String url = "https://discgolfmetrix.com/course/28110";
-        int minIndex = 33;
-        int maxIndex = 92;
-        ekeberg = new ArrayList<>(Collections.nCopies(maxIndex - minIndex + 1, null));
+    public void jessheim() {
+        String url = "https://discgolfmetrix.com/course/37595";
+        int minIndex = 37;
+        int maxIndex = 96;
+        jessheim = new ArrayList<>(Collections.nCopies(maxIndex - minIndex + 1, null));
         for (int i = 0; i < minIndex - 1; i++) {
-            ekeberg.add(0);
+            jessheim.add(0);
         }
-        ekeberg = new ArrayList<>(Collections.nCopies(maxIndex + 1, 0));
+        jessheim = new ArrayList<>(Collections.nCopies(maxIndex + 1, 0));
         for (int i = 0; i < minIndex; i++) {
-            ekeberg.set(i, 0);
+            jessheim.set(i, 0);
         }
         try {
             Document doc = Jsoup.connect(url).get();
@@ -44,8 +44,8 @@ public class ScraperEkeberg {
                                 String valueStr = columns.get(i + 1).text().trim();
                                 int value = Integer.parseInt(valueStr);
                                 int listIndex = index;
-                                if (listIndex >= 0 && listIndex < ekeberg.size()) {
-                                    ekeberg.set(listIndex, value);
+                                if (listIndex >= 0 && listIndex < jessheim.size()) {
+                                    jessheim.set(listIndex, value);
                                 } else {
                                     System.out.println("Index " + index + " is out of the expected range.");
                                 }

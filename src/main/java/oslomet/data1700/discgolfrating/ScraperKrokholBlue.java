@@ -12,22 +12,22 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 @Component
-public class ScraperEkeberg {
+public class ScraperKrokholBlue {
 
-    public static ArrayList<Integer> ekeberg;
+    public static ArrayList<Integer> krokholBlue;
 
     @PostConstruct
-    public void ekeberg() {
-        String url = "https://discgolfmetrix.com/course/28110";
-        int minIndex = 33;
-        int maxIndex = 92;
-        ekeberg = new ArrayList<>(Collections.nCopies(maxIndex - minIndex + 1, null));
+    public void krokholBlue() {
+        String url = "https://discgolfmetrix.com/course/24362";
+        int minIndex = 48;
+        int maxIndex = 107;
+        krokholBlue = new ArrayList<>(Collections.nCopies(maxIndex - minIndex + 1, null));
         for (int i = 0; i < minIndex - 1; i++) {
-            ekeberg.add(0);
+            krokholBlue.add(0);
         }
-        ekeberg = new ArrayList<>(Collections.nCopies(maxIndex + 1, 0));
+        krokholBlue = new ArrayList<>(Collections.nCopies(maxIndex + 1, 0));
         for (int i = 0; i < minIndex; i++) {
-            ekeberg.set(i, 0);
+            krokholBlue.set(i, 0);
         }
         try {
             Document doc = Jsoup.connect(url).get();
@@ -44,8 +44,8 @@ public class ScraperEkeberg {
                                 String valueStr = columns.get(i + 1).text().trim();
                                 int value = Integer.parseInt(valueStr);
                                 int listIndex = index;
-                                if (listIndex >= 0 && listIndex < ekeberg.size()) {
-                                    ekeberg.set(listIndex, value);
+                                if (listIndex >= 0 && listIndex < krokholBlue.size()) {
+                                    krokholBlue.set(listIndex, value);
                                 } else {
                                     System.out.println("Index " + index + " is out of the expected range.");
                                 }

@@ -4,24 +4,7 @@ function calculate() {
         strokes: $("#strokeCount").val()
     };
 
-    if (round.course === "Hvam Main") {
-        $.get("/hvamMain", function(data) {
-            if (Array.isArray(data)) {
-                let strokes = parseInt(round.strokes, 10);
-                if (strokes >= 0 && strokes < data.length) {
-                    let value = data[strokes];
-                    let course = round.course;
-                    addToTable(course, strokes, value);
-                } else {
-                    alert("Antall kast er utenfor gyldig område.");
-                }
-            } else {
-                alert("Feil i dataformatet fra server.");
-            }
-        }).fail(function() {
-            alert("Kunne ikke hente data fra server.");
-        });
-    } else if (round.course === "Ekeberg") {
+    if (round.course === "Ekeberg") {
         $.get("/ekeberg", function(data) {
             if (Array.isArray(data)) {
                 let strokes = parseInt(round.strokes, 10);
@@ -38,8 +21,178 @@ function calculate() {
         }).fail(function() {
             alert("Kunne ikke hente data fra server.");
         });
+    } else if (round.course === "Hvam Main") {
+        $.get("/hvamMain", function(data) {
+            if (Array.isArray(data)) {
+                let strokes = parseInt(round.strokes, 10);
+                if (strokes >= 0 && strokes < data.length) {
+                    let value = data[strokes];
+                    let course = round.course;
+                    addToTable(course, strokes, value);
+                } else {
+                    alert("Antall kast er utenfor gyldig område.");
+                }
+            } else {
+                alert("Feil i dataformatet fra server.");
+            }
+        }).fail(function() {
+            alert("Kunne ikke hente data fra server.");
+        });
+    } else if (round.course === "Jessheim") {
+        $.get("/jessheim", function(data) {
+            if (Array.isArray(data)) {
+                let strokes = parseInt(round.strokes, 10);
+                if (strokes >= 0 && strokes < data.length) {
+                    let value = data[strokes];
+                    let course = round.course;
+                    addToTable(course, strokes, value);
+                } else {
+                    alert("Antall kast er utenfor gyldig område.");
+                }
+            } else {
+                alert("Feil i dataformatet fra server.");
+            }
+        }).fail(function() {
+            alert("Kunne ikke hente data fra server.");
+        });
+    } else if (round.course === "Krokhol Blue") {
+        $.get("/krokholBlue", function(data) {
+            if (Array.isArray(data)) {
+                let strokes = parseInt(round.strokes, 10);
+                if (strokes >= 0 && strokes < data.length) {
+                    let value = data[strokes];
+                    let course = round.course;
+                    addToTable(course, strokes, value);
+                } else {
+                    alert("Antall kast er utenfor gyldig område.");
+                }
+            } else {
+                alert("Feil i dataformatet fra server.");
+            }
+        }).fail(function() {
+            alert("Kunne ikke hente data fra server.");
+        });
+    } else if (round.course === "Krokhol Gold") {
+        $.get("/krokholGold", function(data) {
+            if (Array.isArray(data)) {
+                let strokes = parseInt(round.strokes, 10);
+                if (strokes >= 0 && strokes < data.length) {
+                    let value = data[strokes];
+                    let course = round.course;
+                    addToTable(course, strokes, value);
+                } else {
+                    alert("Antall kast er utenfor gyldig område.");
+                }
+            } else {
+                alert("Feil i dataformatet fra server.");
+            }
+        }).fail(function() {
+            alert("Kunne ikke hente data fra server.");
+        });
+    } else if (round.course === "Myrdammen") {
+        $.get("/myrdammen", function(data) {
+            if (Array.isArray(data)) {
+                let strokes = parseInt(round.strokes, 10);
+                if (strokes >= 0 && strokes < data.length) {
+                    let value = data[strokes];
+                    let course = round.course;
+                    addToTable(course, strokes, value);
+                } else {
+                    alert("Antall kast er utenfor gyldig område.");
+                }
+            } else {
+                alert("Feil i dataformatet fra server.");
+            }
+        }).fail(function() {
+            alert("Kunne ikke hente data fra server.");
+        });
+    } else if (round.course === "Nannestad 18-holes") {
+        $.get("/nannestad18", function(data) {
+            if (Array.isArray(data)) {
+                let strokes = parseInt(round.strokes, 10);
+                if (strokes >= 0 && strokes < data.length) {
+                    let value = data[strokes];
+                    let course = round.course;
+                    addToTable(course, strokes, value);
+                } else {
+                    alert("Antall kast er utenfor gyldig område.");
+                }
+            } else {
+                alert("Feil i dataformatet fra server.");
+            }
+        }).fail(function() {
+            alert("Kunne ikke hente data fra server.");
+        });
+    } else if (round.course === "Nannestad 23-holes") {
+        $.get("/nannestad23", function(data) {
+            if (Array.isArray(data)) {
+                let strokes = parseInt(round.strokes, 10);
+                if (strokes >= 0 && strokes < data.length) {
+                    let value = data[strokes];
+                    let course = round.course;
+                    addToTable(course, strokes, value);
+                } else {
+                    alert("Antall kast er utenfor gyldig område.");
+                }
+            } else {
+                alert("Feil i dataformatet fra server.");
+            }
+        }).fail(function() {
+            alert("Kunne ikke hente data fra server.");
+        });
+    } else if (round.course === "Rådhusparken") {
+        $.get("/radhusparken", function(data) {
+            if (Array.isArray(data)) {
+                let strokes = parseInt(round.strokes, 10);
+                if (strokes >= 0 && strokes < data.length) {
+                    let value = data[strokes];
+                    let course = round.course;
+                    addToTable(course, strokes, value);
+                } else {
+                    alert("Antall kast er utenfor gyldig område.");
+                }
+            } else {
+                alert("Feil i dataformatet fra server.");
+            }
+        }).fail(function() {
+            alert("Kunne ikke hente data fra server.");
+        });
+    } else if (round.course === "Stovner") {
+        $.get("/stovner", function(data) {
+            if (Array.isArray(data)) {
+                let strokes = parseInt(round.strokes, 10);
+                if (strokes >= 0 && strokes < data.length) {
+                    let value = data[strokes];
+                    let course = round.course;
+                    addToTable(course, strokes, value);
+                } else {
+                    alert("Antall kast er utenfor gyldig område.");
+                }
+            } else {
+                alert("Feil i dataformatet fra server.");
+            }
+        }).fail(function() {
+            alert("Kunne ikke hente data fra server.");
+        });
+    } else if (round.course === "Valstad") {
+        $.get("/valstad", function(data) {
+            if (Array.isArray(data)) {
+                let strokes = parseInt(round.strokes, 10);
+                if (strokes >= 0 && strokes < data.length) {
+                    let value = data[strokes];
+                    let course = round.course;
+                    addToTable(course, strokes, value);
+                } else {
+                    alert("Antall kast er utenfor gyldig område.");
+                }
+            } else {
+                alert("Feil i dataformatet fra server.");
+            }
+        }).fail(function() {
+            alert("Kunne ikke hente data fra server.");
+        });
     } else {
-        alert("Ugyldig bane valgt.");
+        alert("Ugyldig bane");
     }
 }
 

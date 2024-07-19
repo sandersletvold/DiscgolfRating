@@ -18,7 +18,6 @@ public class DiscgolfRatingController {
         return ScraperHvamMain.hvamMain;
     }
 
-    /*
     @GetMapping("/jessheim")
     public ArrayList<Integer> jessheim() {
         return ScraperJessheim.jessheim;
@@ -62,5 +61,5 @@ public class DiscgolfRatingController {
     @GetMapping("/valstad")
     public ArrayList<Integer> valstad() {
         return ScraperValstad.valstad;
-    } */
+    }
 }

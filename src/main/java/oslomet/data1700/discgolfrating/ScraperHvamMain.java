@@ -55,9 +55,6 @@ public class ScraperHvamMain {
                         }
                     }
                 }
-                for (int i = 0; i < hvamMain.size(); i++) {
-                    System.out.println("Index " + i + ": " + hvamMain.get(i));
-                }
             } else {
                 System.out.println("Table not found");
             }
