@@ -1,6 +1,8 @@
 package oslomet.data1700.discgolfrating;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -61,5 +63,20 @@ public class DiscgolfRatingController {
     @GetMapping("/valstad")
     public ArrayList<Integer> valstad() {
         return ScraperValstad.valstad;
+    }
+
+    @GetMapping("/editRound")
+    public void editRound() {
+
+    }
+
+    @DeleteMapping("/deleteRound")
+    public void deleteRound() {
+
+    }
+
+    @PostMapping("/saveRound")
+    public void saveRound() {
+
     }
 }
