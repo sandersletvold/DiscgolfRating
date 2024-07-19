@@ -1,0 +1,9 @@
+@media (max-width: 991px) {
+    .table td {
+        font-size: 12px;
+    }
+    .btn-danger {
+        font-size: 10px;
+        padding: 2px 2px;
+    }
+}
