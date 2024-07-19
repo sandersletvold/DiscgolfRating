@@ -11,8 +11,11 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-12 col-md">
             <h1>Discgolf Rating</h1>
+        </div>
+        <div class="">
+
         </div>
     </div>
     <div class="row">
@@ -23,7 +26,7 @@
                     <input id="name" type="text" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="chooseCourse">Choose course</label>
+                    <label for="chooseCourse">Choose Course</label>
                     <select id="chooseCourse" class="form-control">
                         <option id="defaultCourse"></option>
                         <option>Ekeberg</option>
@@ -40,7 +43,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="strokeCount">Number of strokes</label>
+                    <label for="strokeCount">Number of Strokes</label>
                     <input id="strokeCount" type="number" class="form-control">
                 </div>
             </form>
@@ -48,12 +51,26 @@
         </div>
         <div class="col-xs-12 col-md-9">
             <div class="table-responsive">
-                <table class="table table-striped" id="allRounds">
+                <table class="table" id="allRounds">
                     <tr><th class="active">Name</th><th class="active">Course</th><th class="active">Strokes</th><th class="active">Rating</th><th class="active"></th></tr>
                 </table>
             </div>
         </div>
     </div>
 </div>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <p>Ratings by Disc Golf Metrix</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <img src="/media/metrix.png" id="metrixLogo">
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 </html>

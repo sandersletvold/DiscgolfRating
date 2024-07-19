@@ -1,9 +1,40 @@
+body {
+    background-color: #bbddff;
+}
+p {
+    font-size: large;
+}
+
+.table {
+    background-color: white;
+}
+.footer {
+    margin-top: 32vh;
+}
+
+#metrixLogo {
+    display: block;
+    height: 5vw;
+}
+
 @media (max-width: 991px) {
+    p {
+        text-align: center;
+    }
     .table td {
         font-size: 12px;
     }
     .btn-danger {
         font-size: 10px;
         padding: 2px 2px;
+    }
+    .footer {
+        margin-bottom: 10px;
+    }
+    #metrixLogo {
+        height: 15vw;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
     }
 }
