@@ -15,8 +15,23 @@ import java.util.Collections;
 public class ScraperRadhusparken {
 
     public static ArrayList<Integer> radhusparken;
+    private boolean isInitialized = false;
 
     @PostConstruct
+    public void initialize() {
+        radhusparken = new ArrayList<>(Collections.nCopies(90, 0));
+        for (int i = 0; i < 30; i++) {
+            radhusparken.set(i, 0);
+        }
+    }
+
+    public synchronized void ensureInitialized() {
+        if (!isInitialized) {
+            radhusparken();
+            isInitialized = true;
+        }
+    }
+
     public void radhusparken() {
         String url = "https://discgolfmetrix.com/course/21728";
         int minIndex = 30;
@@ -61,5 +76,9 @@ public class ScraperRadhusparken {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public ArrayList<Integer> getRadhusparken() {
+        ensureInitialized();
+        return radhusparken;
     }
 }

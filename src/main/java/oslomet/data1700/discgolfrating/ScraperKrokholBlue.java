@@ -15,8 +15,23 @@ import java.util.Collections;
 public class ScraperKrokholBlue {
 
     public static ArrayList<Integer> krokholBlue;
+    private boolean isInitialized = false;
 
     @PostConstruct
+    public void initialize() {
+        krokholBlue = new ArrayList<>(Collections.nCopies(108, 0));
+        for (int i = 0; i < 48; i++) {
+            krokholBlue.set(i, 0);
+        }
+    }
+
+    public synchronized void ensureInitialized() {
+        if (!isInitialized) {
+            krokholBlue();
+            isInitialized = true;
+        }
+    }
+
     public void krokholBlue() {
         String url = "https://discgolfmetrix.com/course/24362";
         int minIndex = 48;
@@ -61,5 +76,9 @@ public class ScraperKrokholBlue {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public ArrayList<Integer> getKrokholBlue() {
+        ensureInitialized();
+        return krokholBlue;
     }
 }

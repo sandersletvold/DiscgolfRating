@@ -15,8 +15,23 @@ import java.util.Collections;
 public class ScraperMyrdammen {
 
     public static ArrayList<Integer> myrdammen;
+    private boolean isInitialized = false;
 
     @PostConstruct
+    public void initialize() {
+        myrdammen = new ArrayList<>(Collections.nCopies(93, 0));
+        for (int i = 0; i < 33; i++) {
+            myrdammen.set(i, 0);
+        }
+    }
+
+    public synchronized void ensureInitialized() {
+        if (!isInitialized) {
+            myrdammen();
+            isInitialized = true;
+        }
+    }
+
     public void myrdammen() {
         String url = "https://discgolfmetrix.com/course/23475";
         int minIndex = 33;
@@ -61,5 +76,9 @@ public class ScraperMyrdammen {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public ArrayList<Integer> getMyrdammen() {
+        ensureInitialized();
+        return myrdammen;
     }
 }

@@ -15,8 +15,23 @@ import java.util.Collections;
 public class ScraperNannestad18 {
 
     public static ArrayList<Integer> nannestad18;
+    private boolean isInitialized = false;
 
     @PostConstruct
+    public void initialize() {
+        nannestad18 = new ArrayList<>(Collections.nCopies(95, 0));
+        for (int i = 0; i < 35; i++) {
+            nannestad18.set(i, 0);
+        }
+    }
+
+    public synchronized void ensureInitialized() {
+        if (!isInitialized) {
+            nannestad18();
+            isInitialized = true;
+        }
+    }
+
     public void nannestad18() {
         String url = "https://discgolfmetrix.com/course/16535";
         int minIndex = 35;
@@ -61,5 +76,9 @@ public class ScraperNannestad18 {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public ArrayList<Integer> getNannestad18() {
+        ensureInitialized();
+        return nannestad18;
     }
 }

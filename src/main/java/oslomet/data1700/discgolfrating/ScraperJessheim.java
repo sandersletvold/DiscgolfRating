@@ -15,8 +15,23 @@ import java.util.Collections;
 public class ScraperJessheim {
 
     public static ArrayList<Integer> jessheim;
+    private boolean isInitialized = false;
 
     @PostConstruct
+    public void initialize() {
+        jessheim = new ArrayList<>(Collections.nCopies(97, 0));
+        for (int i = 0; i < 37; i++) {
+            jessheim.set(i, 0);
+        }
+    }
+
+    public synchronized void ensureInitialized() {
+        if (!isInitialized) {
+            jessheim();
+            isInitialized = true;
+        }
+    }
+
     public void jessheim() {
         String url = "https://discgolfmetrix.com/course/37595";
         int minIndex = 37;
@@ -61,5 +76,9 @@ public class ScraperJessheim {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public ArrayList<Integer> getJessheim() {
+        ensureInitialized();
+        return jessheim;
     }
 }

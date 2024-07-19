@@ -15,8 +15,23 @@ import java.util.Collections;
 public class ScraperHvamMain {
 
     public static ArrayList<Integer> hvamMain;
+    private boolean isInitialized = false;
 
     @PostConstruct
+    public void initialize() {
+        hvamMain = new ArrayList<>(Collections.nCopies(104, 0));
+        for (int i = 0; i < 44; i++) {
+            hvamMain.set(i, 0);
+        }
+    }
+
+    public synchronized void ensureInitialized() {
+        if (!isInitialized) {
+            hvamMain();
+            isInitialized = true;
+        }
+    }
+
     public void hvamMain() {
         String url = "https://discgolfmetrix.com/course/33033";
         int minIndex = 44;
@@ -61,5 +76,9 @@ public class ScraperHvamMain {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public ArrayList<Integer> getHvamMain() {
+        ensureInitialized();
+        return hvamMain;
     }
 }

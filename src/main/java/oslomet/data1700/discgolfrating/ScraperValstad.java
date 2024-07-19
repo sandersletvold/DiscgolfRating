@@ -15,8 +15,23 @@ import java.util.Collections;
 public class ScraperValstad {
 
     public static ArrayList<Integer> valstad;
+    private boolean isInitialized = false;
 
     @PostConstruct
+    public void initialize() {
+        valstad = new ArrayList<>(Collections.nCopies(94, 0));
+        for (int i = 0; i < 34; i++) {
+            valstad.set(i, 0);
+        }
+    }
+
+    public synchronized void ensureInitialized() {
+        if (!isInitialized) {
+            valstad();
+            isInitialized = true;
+        }
+    }
+
     public void valstad() {
         String url = "https://discgolfmetrix.com/course/28542";
         int minIndex = 34;
@@ -61,5 +76,9 @@ public class ScraperValstad {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public ArrayList<Integer> getValstad() {
+        ensureInitialized();
+        return valstad;
     }
 }

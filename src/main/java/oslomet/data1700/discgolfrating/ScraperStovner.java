@@ -15,8 +15,23 @@ import java.util.Collections;
 public class ScraperStovner {
 
     public static ArrayList<Integer> stovner;
+    private boolean isInitialized = false;
 
     @PostConstruct
+    public void initialize() {
+        stovner = new ArrayList<>(Collections.nCopies(104, 0));
+        for (int i = 0; i < 44; i++) {
+            stovner.set(i, 0);
+        }
+    }
+
+    public synchronized void ensureInitialized() {
+        if (!isInitialized) {
+            stovner();
+            isInitialized = true;
+        }
+    }
+
     public void stovner() {
         String url = "https://discgolfmetrix.com/course/4848";
         int minIndex = 44;
@@ -61,5 +76,9 @@ public class ScraperStovner {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public ArrayList<Integer> getStovner() {
+        ensureInitialized();
+        return stovner;
     }
 }

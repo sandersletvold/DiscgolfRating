@@ -15,8 +15,23 @@ import java.util.Collections;
 public class ScraperEkeberg {
 
     public static ArrayList<Integer> ekeberg;
+    private boolean isInitialized = false;
 
     @PostConstruct
+    public void initialize() {
+        ekeberg = new ArrayList<>(Collections.nCopies(93, 0));
+        for (int i = 0; i < 33; i++) {
+            ekeberg.set(i, 0);
+        }
+    }
+
+    public synchronized void ensureInitialized() {
+        if (!isInitialized) {
+            ekeberg();
+            isInitialized = true;
+        }
+    }
+
     public void ekeberg() {
         String url = "https://discgolfmetrix.com/course/28110";
         int minIndex = 33;
@@ -61,5 +76,9 @@ public class ScraperEkeberg {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public ArrayList<Integer> getEkeberg() {
+        ensureInitialized();
+        return ekeberg;
     }
 }
