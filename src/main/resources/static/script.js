@@ -229,3 +229,31 @@ function deleteRound(roundNr) {
     // Fjern raden
     $("#round-" + roundNr).remove();
 }
+
+function checkCourse() {
+    if ($("#chooseCourse").val() === "Ekeberg") {
+        $("#totalStrokes").html("Total Strokes - Par 55");
+    } else if ($("#chooseCourse").val() === "Hvam Main") {
+        $("#totalStrokes").html("Total Strokes - Par 62");
+    } else if ($("#chooseCourse").val() === "Jessheim") {
+        $("#totalStrokes").html("Total Strokes - Par 58");
+    } else if ($("#chooseCourse").val() === "Krokhol Blue") {
+        $("#totalStrokes").html("Total Strokes - Par 62");
+    } else if ($("#chooseCourse").val() === "Krokhol Gold") {
+        $("#totalStrokes").html("Total Strokes - Par 62");
+    } else if ($("#chooseCourse").val() === "Myrdammen") {
+        $("#totalStrokes").html("Total Strokes - Par 56");
+    } else if ($("#chooseCourse").val() === "Nannestad 18-holes") {
+        $("#totalStrokes").html("Total Strokes - Par 56");
+    } else if ($("#chooseCourse").val() === "Nannestad 23-holes") {
+        $("#totalStrokes").html("Total Strokes - Par 73");
+    }else if ($("#chooseCourse").val() === "Rådhusparken") {
+        $("#totalStrokes").html("Total Strokes - Par 54");
+    }else if ($("#chooseCourse").val() === "Stovner") {
+        $("#totalStrokes").html("Total Strokes - Par 56");
+    } else if ($("#chooseCourse").val() === "Valstad") {
+        $("#totalStrokes").html("Total Strokes - Par 56");
+    } else {
+        $("#totalStrokes").html("Total Strokes");
+    }
+}
