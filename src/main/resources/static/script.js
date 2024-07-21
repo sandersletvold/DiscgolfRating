@@ -11,6 +11,7 @@ function calculate() {
     $("#name").val("");
     $("#strokeCount").val("");
     $("#chooseCourse").val("");
+    $("#totalStrokes").html("Total Strokes");
 
     if (round.course === "Ekeberg") {
         $.get("/ekeberg", function(data) {
@@ -18,7 +19,7 @@ function calculate() {
                 let strokes = parseInt(round.strokes, 10);
                 if (strokes >= 0 && strokes < data.length) {
                     let value = data[strokes];
-                    addToTable(round.roundNr, round.name, round.course, strokes, value);
+                    addToTable(round.name, round.course, strokes, value);
                     roundNr++;
                 } else {
                     alert("Antall kast er utenfor gyldig område.");
@@ -35,7 +36,7 @@ function calculate() {
                 let strokes = parseInt(round.strokes, 10);
                 if (strokes >= 0 && strokes < data.length) {
                     let value = data[strokes];
-                    addToTable(round.roundNr, round.name, round.course, strokes, value);
+                    addToTable(round.name, round.course, strokes, value);
                     roundNr++;
                 } else {
                     alert("Antall kast er utenfor gyldig område.");
@@ -52,7 +53,7 @@ function calculate() {
                 let strokes = parseInt(round.strokes, 10);
                 if (strokes >= 0 && strokes < data.length) {
                     let value = data[strokes];
-                    addToTable(round.roundNr, round.name, round.course, strokes, value);
+                    addToTable(round.name, round.course, strokes, value);
                     roundNr++;
                 } else {
                     alert("Antall kast er utenfor gyldig område.");
@@ -69,7 +70,7 @@ function calculate() {
                 let strokes = parseInt(round.strokes, 10);
                 if (strokes >= 0 && strokes < data.length) {
                     let value = data[strokes];
-                    addToTable(round.roundNr, round.name, round.course, strokes, value);
+                    addToTable(round.name, round.course, strokes, value);
                     roundNr++;
                 } else {
                     alert("Antall kast er utenfor gyldig område.");
@@ -86,7 +87,7 @@ function calculate() {
                 let strokes = parseInt(round.strokes, 10);
                 if (strokes >= 0 && strokes < data.length) {
                     let value = data[strokes];
-                    addToTable(round.roundNr, round.name, round.course, strokes, value);
+                    addToTable(round.name, round.course, strokes, value);
                     roundNr++;
                 } else {
                     alert("Antall kast er utenfor gyldig område.");
@@ -103,7 +104,7 @@ function calculate() {
                 let strokes = parseInt(round.strokes, 10);
                 if (strokes >= 0 && strokes < data.length) {
                     let value = data[strokes];
-                    addToTable(round.roundNr, round.name, round.course, strokes, value);
+                    addToTable(round.name, round.course, strokes, value);
                     roundNr++;
                 } else {
                     alert("Antall kast er utenfor gyldig område.");
@@ -120,7 +121,7 @@ function calculate() {
                 let strokes = parseInt(round.strokes, 10);
                 if (strokes >= 0 && strokes < data.length) {
                     let value = data[strokes];
-                    addToTable(round.roundNr, round.name, round.course, strokes, value);
+                    addToTable(round.name, round.course, strokes, value);
                     roundNr++;
                 } else {
                     alert("Antall kast er utenfor gyldig område.");
@@ -137,7 +138,7 @@ function calculate() {
                 let strokes = parseInt(round.strokes, 10);
                 if (strokes >= 0 && strokes < data.length) {
                     let value = data[strokes];
-                    addToTable(round.roundNr, round.name, round.course, strokes, value);
+                    addToTable(round.name, round.course, strokes, value);
                     roundNr++;
                 } else {
                     alert("Antall kast er utenfor gyldig område.");
@@ -154,7 +155,7 @@ function calculate() {
                 let strokes = parseInt(round.strokes, 10);
                 if (strokes >= 0 && strokes < data.length) {
                     let value = data[strokes];
-                    addToTable(round.roundNr, round.name, round.course, strokes, value);
+                    addToTable(round.name, round.course, strokes, value);
                     roundNr++;
                 } else {
                     alert("Antall kast er utenfor gyldig område.");
@@ -171,7 +172,7 @@ function calculate() {
                 let strokes = parseInt(round.strokes, 10);
                 if (strokes >= 0 && strokes < data.length) {
                     let value = data[strokes];
-                    addToTable(round.roundNr, round.name, round.course, strokes, value);
+                    addToTable(round.name, round.course, strokes, value);
                     roundNr++;
                 } else {
                     alert("Antall kast er utenfor gyldig område.");
@@ -188,7 +189,7 @@ function calculate() {
                 let strokes = parseInt(round.strokes, 10);
                 if (strokes >= 0 && strokes < data.length) {
                     let value = data[strokes];
-                    addToTable(round.roundNr, round.name, round.course, strokes, value);
+                    addToTable(round.name, round.course, strokes, value);
                     roundNr++;
                 } else {
                     alert("Antall kast er utenfor gyldig område.");
@@ -204,7 +205,7 @@ function calculate() {
     }
 }
 
-function addToTable(roundNr, name, course, strokes, value) {
+function addToTable(name, course, strokes, value) {
     // Finn tabellen
     let table = $("#allRounds");
 
@@ -256,4 +257,20 @@ function checkCourse() {
     } else {
         $("#totalStrokes").html("Total Strokes");
     }
+}
+
+function sortByName() {
+    alert("Funksjon som sorterer rundene er under arbeid!");
+}
+
+function sortByCourse() {
+    alert("Funksjon som sorterer rundene er under arbeid!");
+}
+
+function sortByStrokes() {
+    alert("Funksjon som sorterer rundene er under arbeid!");
+}
+
+function sortByRating() {
+    alert("Funksjon som sorterer rundene er under arbeid!");
 }

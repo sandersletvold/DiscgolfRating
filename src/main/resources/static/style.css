@@ -11,6 +11,9 @@ p {
 .footer {
     margin-top: 32vh;
 }
+.btn-danger {
+    padding: 1px 1px;
+}
 
 #metrixLogo {
     display: block;
