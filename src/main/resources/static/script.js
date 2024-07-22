@@ -258,19 +258,3 @@ function checkCourse() {
         $("#totalStrokes").html("Total Strokes");
     }
 }
-
-function sortByName() {
-    alert("Funksjon som sorterer rundene er under arbeid!");
-}
-
-function sortByCourse() {
-    alert("Funksjon som sorterer rundene er under arbeid!");
-}
-
-function sortByStrokes() {
-    alert("Funksjon som sorterer rundene er under arbeid!");
-}
-
-function sortByRating() {
-    alert("Funksjon som sorterer rundene er under arbeid!");
-}

@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
     <title>Discgolf Rating</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="script.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/sorttable.js"></script>
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -48,8 +49,8 @@
         </div>
         <div class="col-xs-12 col-md-9">
             <div class="table-responsive">
-                <table class="table" id="allRounds">
-                    <tr><th class="active" onclick="sortByName()">Name</th><th class="active" onclick="sortByCourse()">Course</th><th class="active" onclick="sortByStrokes()">Strokes</th><th class="active" onclick="sortByRating()">Rating</th><th class="active"></th></tr>
+                <table class="sortable table" id="allRounds">
+                    <tr><th class="active">Name</th><th class="active">Course</th><th class="active">Strokes</th><th class="active sorttable_numeric">Rating</th><th class="active"></th></tr>
                 </table>
             </div>
         </div>
