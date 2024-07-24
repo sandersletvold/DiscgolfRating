@@ -45,7 +45,8 @@
                     <input id="strokeCount" type="number" class="form-control">
                 </div>
             </form>
-            <button class="btn btn-primary btn-block" onclick="calculate()">Calculate Rating</button>
+            <button class="btn btn-primary btn-block" id="calculateButton" onclick="calculate()">Calculate Rating</button>
+            <progress id="progress" value="0" max="100"></progress>
         </div>
         <div class="col-xs-12 col-md-9">
             <div class="table-responsive">

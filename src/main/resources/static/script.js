@@ -13,7 +13,9 @@ function calculate() {
     $("#chooseCourse").val("");
     $("#totalStrokes").html("Total Strokes");
 
+
     if (round.course === "Ekeberg") {
+        increaseProgress();
         $.get("/ekeberg", function(data) {
             if (Array.isArray(data)) {
                 let strokes = parseInt(round.strokes, 10);
@@ -31,6 +33,7 @@ function calculate() {
             alert("Kunne ikke hente data fra server.");
         });
     } else if (round.course === "Hvam Main") {
+        increaseProgress();
         $.get("/hvamMain", function(data) {
             if (Array.isArray(data)) {
                 let strokes = parseInt(round.strokes, 10);
@@ -48,6 +51,7 @@ function calculate() {
             alert("Kunne ikke hente data fra server.");
         });
     } else if (round.course === "Jessheim") {
+        increaseProgress();
         $.get("/jessheim", function(data) {
             if (Array.isArray(data)) {
                 let strokes = parseInt(round.strokes, 10);
@@ -65,6 +69,7 @@ function calculate() {
             alert("Kunne ikke hente data fra server.");
         });
     } else if (round.course === "Krokhol Blue") {
+        increaseProgress();
         $.get("/krokholBlue", function(data) {
             if (Array.isArray(data)) {
                 let strokes = parseInt(round.strokes, 10);
@@ -82,6 +87,7 @@ function calculate() {
             alert("Kunne ikke hente data fra server.");
         });
     } else if (round.course === "Krokhol Gold") {
+        increaseProgress();
         $.get("/krokholGold", function(data) {
             if (Array.isArray(data)) {
                 let strokes = parseInt(round.strokes, 10);
@@ -99,6 +105,7 @@ function calculate() {
             alert("Kunne ikke hente data fra server.");
         });
     } else if (round.course === "Myrdammen") {
+        increaseProgress();
         $.get("/myrdammen", function(data) {
             if (Array.isArray(data)) {
                 let strokes = parseInt(round.strokes, 10);
@@ -116,6 +123,7 @@ function calculate() {
             alert("Kunne ikke hente data fra server.");
         });
     } else if (round.course === "Nannestad 18-holes") {
+        increaseProgress();
         $.get("/nannestad18", function(data) {
             if (Array.isArray(data)) {
                 let strokes = parseInt(round.strokes, 10);
@@ -133,6 +141,7 @@ function calculate() {
             alert("Kunne ikke hente data fra server.");
         });
     } else if (round.course === "Nannestad 23-holes") {
+        increaseProgress();
         $.get("/nannestad23", function(data) {
             if (Array.isArray(data)) {
                 let strokes = parseInt(round.strokes, 10);
@@ -150,6 +159,7 @@ function calculate() {
             alert("Kunne ikke hente data fra server.");
         });
     } else if (round.course === "Rådhusparken") {
+        increaseProgress();
         $.get("/radhusparken", function(data) {
             if (Array.isArray(data)) {
                 let strokes = parseInt(round.strokes, 10);
@@ -167,6 +177,7 @@ function calculate() {
             alert("Kunne ikke hente data fra server.");
         });
     } else if (round.course === "Stovner") {
+        increaseProgress();
         $.get("/stovner", function(data) {
             if (Array.isArray(data)) {
                 let strokes = parseInt(round.strokes, 10);
@@ -184,6 +195,7 @@ function calculate() {
             alert("Kunne ikke hente data fra server.");
         });
     } else if (round.course === "Valstad") {
+        increaseProgress();
         $.get("/valstad", function(data) {
             if (Array.isArray(data)) {
                 let strokes = parseInt(round.strokes, 10);
@@ -224,6 +236,8 @@ function addToTable(name, course, strokes, value) {
 
     // Legg den nye raden til tabellen
     table.append(newRow);
+
+    finishProgress();
 }
 
 function deleteRound(roundNr) {
@@ -257,4 +271,30 @@ function checkCourse() {
     } else {
         $("#totalStrokes").html("Total Strokes");
     }
+}
+
+function increaseProgress() {
+    let progressElement = $("#progress");
+    let buttonElement = $("#calculateButton");
+    buttonElement.css('display', 'none');
+    progressElement.css('display', 'block');
+    let currentValue = progressElement.val();
+
+    if (currentValue < 90) {
+        progressElement.val(currentValue + 1);
+        setTimeout(increaseProgress, 10);
+    }
+}
+
+function finishProgress() {
+    $("#progress").val(100);
+    setTimeout(resetProgress, 100);
+}
+
+function resetProgress() {
+    let progressElement = $("#progress");
+    let buttonElement = $("#calculateButton");
+    progressElement.val(0);
+    progressElement.css('display', 'none');
+    buttonElement.css('display', 'block');
 }
