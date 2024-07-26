@@ -18,6 +18,30 @@ public class DiscgolfRatingController {
     }
 
     @Autowired
+    private ScraperHestehagenBlue scraperHestehagenBlue;
+
+    @GetMapping("/hestehagenBlue")
+    public ArrayList<Integer> hestehagenBlue() {
+        return scraperHestehagenBlue.getHestehagenBlue();
+    }
+
+    @Autowired
+    private ScraperHestehagenGold scraperHestehagenGold;
+
+    @GetMapping("/hestehagenGold")
+    public ArrayList<Integer> hestehagenGold() {
+        return scraperHestehagenGold.getHestehagenGold();
+    }
+
+    @Autowired
+    private ScraperHolmenkollen scraperHolmenkollen;
+
+    @GetMapping("/holmenkollen")
+    public ArrayList<Integer> holmenkollen() {
+        return scraperHolmenkollen.getHolmenkollen();
+    }
+
+    @Autowired
     private ScraperHvamMain scraperHvamMain;
 
     @GetMapping("/hvamMain")
@@ -34,6 +58,14 @@ public class DiscgolfRatingController {
     }
 
     @Autowired
+    private ScraperKlemetsrud scraperKlemetsrud;
+
+    @GetMapping("/klemetsrud")
+    public ArrayList<Integer> klemetsrud() {
+        return scraperKlemetsrud.getKlemetsrud();
+    }
+
+    @Autowired
     private ScraperKrokholBlue scraperKrokholBlue;
 
     @GetMapping("/krokholBlue")
@@ -47,6 +79,14 @@ public class DiscgolfRatingController {
     @GetMapping("/krokholGold")
     public ArrayList<Integer> krokholGold() {
         return scraperKrokholGold.getKrokholGold();
+    }
+
+    @Autowired
+    private ScraperLygna scraperLygna;
+
+    @GetMapping("/lygna")
+    public ArrayList<Integer> lygna() {
+        return scraperLygna.getLygna();
     }
 
     @Autowired
@@ -95,5 +135,13 @@ public class DiscgolfRatingController {
     @GetMapping("/valstad")
     public ArrayList<Integer> valstad() {
         return scraperValstad.getValstad();
+    }
+
+    @Autowired
+    private ScraperVear scraperVear;
+
+    @GetMapping("/vear")
+    public ArrayList<Integer> vear() {
+        return scraperVear.getVear();
     }
 }

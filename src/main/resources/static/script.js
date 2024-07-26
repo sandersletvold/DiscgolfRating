@@ -32,6 +32,60 @@ function calculate() {
         }).fail(function() {
             alert("Kunne ikke hente data fra server.");
         });
+    } else if (round.course === "Hestehagen Blue") {
+        increaseProgress();
+        $.get("/hestehagenBlue", function(data) {
+            if (Array.isArray(data)) {
+                let strokes = parseInt(round.strokes, 10);
+                if (strokes >= 0 && strokes < data.length) {
+                    let value = data[strokes];
+                    addToTable(round.name, round.course, strokes, value);
+                    roundNr++;
+                } else {
+                    alert("Antall kast er utenfor gyldig område.");
+                }
+            } else {
+                alert("Feil i dataformatet fra server.");
+            }
+        }).fail(function() {
+            alert("Kunne ikke hente data fra server.");
+        });
+    } else if (round.course === "Hestehagen Gold") {
+        increaseProgress();
+        $.get("/hestehagenGold", function(data) {
+            if (Array.isArray(data)) {
+                let strokes = parseInt(round.strokes, 10);
+                if (strokes >= 0 && strokes < data.length) {
+                    let value = data[strokes];
+                    addToTable(round.name, round.course, strokes, value);
+                    roundNr++;
+                } else {
+                    alert("Antall kast er utenfor gyldig område.");
+                }
+            } else {
+                alert("Feil i dataformatet fra server.");
+            }
+        }).fail(function() {
+            alert("Kunne ikke hente data fra server.");
+        });
+    } else if (round.course === "Holmenkollen") {
+        increaseProgress();
+        $.get("/holmenkollen", function(data) {
+            if (Array.isArray(data)) {
+                let strokes = parseInt(round.strokes, 10);
+                if (strokes >= 0 && strokes < data.length) {
+                    let value = data[strokes];
+                    addToTable(round.name, round.course, strokes, value);
+                    roundNr++;
+                } else {
+                    alert("Antall kast er utenfor gyldig område.");
+                }
+            } else {
+                alert("Feil i dataformatet fra server.");
+            }
+        }).fail(function() {
+            alert("Kunne ikke hente data fra server.");
+        });
     } else if (round.course === "Hvam Main") {
         increaseProgress();
         $.get("/hvamMain", function(data) {
@@ -68,6 +122,24 @@ function calculate() {
         }).fail(function() {
             alert("Kunne ikke hente data fra server.");
         });
+    } else if (round.course === "Klemetsrud") {
+        increaseProgress();
+        $.get("/klemetsrud", function(data) {
+            if (Array.isArray(data)) {
+                let strokes = parseInt(round.strokes, 10);
+                if (strokes >= 0 && strokes < data.length) {
+                    let value = data[strokes];
+                    addToTable(round.name, round.course, strokes, value);
+                    roundNr++;
+                } else {
+                    alert("Antall kast er utenfor gyldig område.");
+                }
+            } else {
+                alert("Feil i dataformatet fra server.");
+            }
+        }).fail(function() {
+            alert("Kunne ikke hente data fra server.");
+        });
     } else if (round.course === "Krokhol Blue") {
         increaseProgress();
         $.get("/krokholBlue", function(data) {
@@ -89,6 +161,24 @@ function calculate() {
     } else if (round.course === "Krokhol Gold") {
         increaseProgress();
         $.get("/krokholGold", function(data) {
+            if (Array.isArray(data)) {
+                let strokes = parseInt(round.strokes, 10);
+                if (strokes >= 0 && strokes < data.length) {
+                    let value = data[strokes];
+                    addToTable(round.name, round.course, strokes, value);
+                    roundNr++;
+                } else {
+                    alert("Antall kast er utenfor gyldig område.");
+                }
+            } else {
+                alert("Feil i dataformatet fra server.");
+            }
+        }).fail(function() {
+            alert("Kunne ikke hente data fra server.");
+        });
+    } else if (round.course === "Lygna") {
+        increaseProgress();
+        $.get("/lygna", function(data) {
             if (Array.isArray(data)) {
                 let strokes = parseInt(round.strokes, 10);
                 if (strokes >= 0 && strokes < data.length) {
@@ -212,6 +302,24 @@ function calculate() {
         }).fail(function() {
             alert("Kunne ikke hente data fra server.");
         });
+    } else if (round.course === "Vear") {
+        increaseProgress();
+        $.get("/vear", function(data) {
+            if (Array.isArray(data)) {
+                let strokes = parseInt(round.strokes, 10);
+                if (strokes >= 0 && strokes < data.length) {
+                    let value = data[strokes];
+                    addToTable(round.name, round.course, strokes, value);
+                    roundNr++;
+                } else {
+                    alert("Antall kast er utenfor gyldig område.");
+                }
+            } else {
+                alert("Feil i dataformatet fra server.");
+            }
+        }).fail(function() {
+            alert("Kunne ikke hente data fra server.");
+        });
     } else {
         alert("Ugyldig bane");
     }
@@ -248,6 +356,12 @@ function deleteRound(roundNr) {
 function checkCourse() {
     if ($("#chooseCourse").val() === "Ekeberg") {
         $("#totalStrokes").html("Total Strokes - Par 55");
+    } else if ($("#chooseCourse").val() === "Hestehagen Blue") {
+        $("#totalStrokes").html("Total Strokes - Par 61");
+    } else if ($("#chooseCourse").val() === "Hestehagen Gold") {
+        $("#totalStrokes").html("Total Strokes - Par 61");
+    } else if ($("#chooseCourse").val() === "Holmenkollen") {
+        $("#totalStrokes").html("Total Strokes - Par 54");
     } else if ($("#chooseCourse").val() === "Hvam Main") {
         $("#totalStrokes").html("Total Strokes - Par 62");
     } else if ($("#chooseCourse").val() === "Jessheim") {
@@ -268,6 +382,12 @@ function checkCourse() {
         $("#totalStrokes").html("Total Strokes - Par 56");
     } else if ($("#chooseCourse").val() === "Valstad") {
         $("#totalStrokes").html("Total Strokes - Par 56");
+    } else if ($("#chooseCourse").val() === "Klemetsrud") {
+        $("#totalStrokes").html("Total Strokes - Par 60");
+    } else if ($("#chooseCourse").val() === "Lygna") {
+        $("#totalStrokes").html("Total Strokes - Par 55");
+    } else if ($("#chooseCourse").val() === "Vear") {
+        $("#totalStrokes").html("Total Strokes - Par 57");
     } else {
         $("#totalStrokes").html("Total Strokes");
     }
@@ -282,7 +402,7 @@ function increaseProgress() {
 
     if (currentValue < 90) {
         progressElement.val(currentValue + 1);
-        setTimeout(increaseProgress, 10);
+        setTimeout(increaseProgress, 20);
     }
 }
 
