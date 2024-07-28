@@ -58,6 +58,14 @@ public class DiscgolfRatingController {
     }
 
     @Autowired
+    private ScraperKalvoya scraperKalvoya;
+
+    @GetMapping("/kalvoya")
+    public ArrayList<Integer> kalvoya() {
+        return scraperKalvoya.getKalvoya();
+    }
+
+    @Autowired
     private ScraperKlemetsrud scraperKlemetsrud;
 
     @GetMapping("/klemetsrud")
@@ -127,6 +135,22 @@ public class DiscgolfRatingController {
     @GetMapping("/stovner")
     public ArrayList<Integer> stovner() {
         return scraperStovner.getStovner();
+    }
+
+    @Autowired
+    private ScraperTillerskogenBlue scraperTillerskogenBlue;
+
+    @GetMapping("/tillerskogenBlue")
+    public ArrayList<Integer> tillerskogenBlue() {
+        return scraperTillerskogenBlue.getTillerskogenBlue();
+    }
+
+    @Autowired
+    private ScraperTillerskogenRed scraperTillerskogenRed;
+
+    @GetMapping("/tillerskogenRed")
+    public ArrayList<Integer> tillerskogenRed() {
+        return scraperTillerskogenRed.getTillerskogenRed();
     }
 
     @Autowired

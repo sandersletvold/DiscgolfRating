@@ -122,6 +122,24 @@ function calculate() {
         }).fail(function() {
             alert("Kunne ikke hente data fra server.");
         });
+    } else if (round.course === "Kalvøya") {
+        increaseProgress();
+        $.get("/kalvoya", function(data) {
+            if (Array.isArray(data)) {
+                let strokes = parseInt(round.strokes, 10);
+                if (strokes >= 0 && strokes < data.length) {
+                    let value = data[strokes];
+                    addToTable(round.name, round.course, strokes, value);
+                    roundNr++;
+                } else {
+                    alert("Antall kast er utenfor gyldig område.");
+                }
+            } else {
+                alert("Feil i dataformatet fra server.");
+            }
+        }).fail(function() {
+            alert("Kunne ikke hente data fra server.");
+        });
     } else if (round.course === "Klemetsrud") {
         increaseProgress();
         $.get("/klemetsrud", function(data) {
@@ -284,6 +302,42 @@ function calculate() {
         }).fail(function() {
             alert("Kunne ikke hente data fra server.");
         });
+    } else if (round.course === "Tillerskogen Blue") {
+        increaseProgress();
+        $.get("/tillerskogenBlue", function(data) {
+            if (Array.isArray(data)) {
+                let strokes = parseInt(round.strokes, 10);
+                if (strokes >= 0 && strokes < data.length) {
+                    let value = data[strokes];
+                    addToTable(round.name, round.course, strokes, value);
+                    roundNr++;
+                } else {
+                    alert("Antall kast er utenfor gyldig område.");
+                }
+            } else {
+                alert("Feil i dataformatet fra server.");
+            }
+        }).fail(function() {
+            alert("Kunne ikke hente data fra server.");
+        });
+    } else if (round.course === "Tillerskogen Red") {
+        increaseProgress();
+        $.get("/tillerskogenRed", function(data) {
+            if (Array.isArray(data)) {
+                let strokes = parseInt(round.strokes, 10);
+                if (strokes >= 0 && strokes < data.length) {
+                    let value = data[strokes];
+                    addToTable(round.name, round.course, strokes, value);
+                    roundNr++;
+                } else {
+                    alert("Antall kast er utenfor gyldig område.");
+                }
+            } else {
+                alert("Feil i dataformatet fra server.");
+            }
+        }).fail(function() {
+            alert("Kunne ikke hente data fra server.");
+        });
     } else if (round.course === "Valstad") {
         increaseProgress();
         $.get("/valstad", function(data) {
@@ -366,6 +420,8 @@ function checkCourse() {
         $("#totalStrokes").html("Total Strokes - Par 62");
     } else if ($("#chooseCourse").val() === "Jessheim") {
         $("#totalStrokes").html("Total Strokes - Par 58");
+    } else if ($("#chooseCourse").val() === "Kalvøya") {
+        $("#totalStrokes").html("Total Strokes - Par 56");
     } else if ($("#chooseCourse").val() === "Krokhol Blue") {
         $("#totalStrokes").html("Total Strokes - Par 62");
     } else if ($("#chooseCourse").val() === "Krokhol Gold") {
@@ -378,8 +434,12 @@ function checkCourse() {
         $("#totalStrokes").html("Total Strokes - Par 73");
     }else if ($("#chooseCourse").val() === "Rådhusparken") {
         $("#totalStrokes").html("Total Strokes - Par 54");
-    }else if ($("#chooseCourse").val() === "Stovner") {
+    } else if ($("#chooseCourse").val() === "Stovner") {
         $("#totalStrokes").html("Total Strokes - Par 56");
+    } else if ($("#chooseCourse").val() === "Tillerskogen Blue") {
+        $("#totalStrokes").html("Total Strokes - Par 72");
+    } else if ($("#chooseCourse").val() === "Tillerskogen Red") {
+        $("#totalStrokes").html("Total Strokes - Par 71");
     } else if ($("#chooseCourse").val() === "Valstad") {
         $("#totalStrokes").html("Total Strokes - Par 56");
     } else if ($("#chooseCourse").val() === "Klemetsrud") {
